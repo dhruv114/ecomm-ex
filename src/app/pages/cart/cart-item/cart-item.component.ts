@@ -9,9 +9,11 @@ import { CartService } from '../../../services/cart.service';
   template: `
   
   <div 
-  class="bg-white shadow-md border rounded-xl p-6 flex gap-4 items-center"
+  class="bg-white shadow-md border rounded-xl p-4 flex items-center gap-4"
   >
-    <img [src]="item().image" class="w-[50px] h-[50px] object-contain">
+    <div class="image-container w-[50px] h-[50px] flex items-center justify-center">
+      <img [src]="item().image" class="max-w-full max-h-full object-contain" />
+    </div>
     <div class="flex flex-col">
       <span class="text-md font-bold">{{ item().title }}</span>
       <span class="text-sm">{{ "$" + item().price }}</span>

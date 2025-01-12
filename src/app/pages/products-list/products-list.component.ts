@@ -26,7 +26,7 @@ export class ProductsListComponent {
     {
       id: 2,
       title: 'Mens Casual Premium Slim Fit T-Shirts ',
-      price: 22.3,
+      price: 22.33,
       image:
         'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg',
       stock: 0,

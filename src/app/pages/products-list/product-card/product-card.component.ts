@@ -10,7 +10,7 @@ import { CartService } from '../../../services/cart.service';
     <div 
     class='bg-white shadow-md border rounded-xl p-6 flex flex-col gap-6 relative'
     >
-      <div class='mx-auto'>
+      <div class='mx-auto flex flex-col items-center gap-2'>
         <img 
           [src]="product().image"
           class='w-[200px] h-[100px] object-contain'
