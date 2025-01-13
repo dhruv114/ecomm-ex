@@ -2,10 +2,11 @@ import { Component, inject, input } from '@angular/core';
 import { Product } from '../../../models/products-model';
 import { PrimaryButtonComponent } from "../../../components/primary-button/primary-button.component";
 import { CartService } from '../../../services/cart.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-product-card',
-  imports: [PrimaryButtonComponent],
+  imports: [PrimaryButtonComponent, CommonModule],
   template: `
     <div 
     class='bg-white shadow-md border rounded-xl p-6 flex flex-col gap-6 relative'
@@ -18,7 +19,10 @@ import { CartService } from '../../../services/cart.service';
         <div class="flex flex-col mt-2">
           <span class="text-md font-bold">{{ product().title }}</span>
           <span class="text-sm"> {{ '$' + product().price }}</span>
-          <app-primary-button label="Add to Cart" class="mt-3" (btnClicked)="cartService.addToCart(product())"/>
+          <app-primary-button 
+            label="Add to Cart"
+            [buttonClass]="product().stock === 0 ? 'bg-blue-500 text-white w-full border px-5 py-2 rounded-xl shadow-md hover:bg-gray-500' : 'bg-blue-500 text-white w-full border px-5 py-2 rounded-xl shadow-md hover:opacity-90'"
+            (btnClicked)="cartService.addToCart(product())"/>
         </div>
         
         <span 
@@ -34,7 +38,11 @@ import { CartService } from '../../../services/cart.service';
       </div>  
     </div>
   `,
-  styles: ``
+  styles: `
+    .hover\:gray-500:hover {
+      background-color: gray;
+    }
+  `
 })
 export class ProductCardComponent {
 
